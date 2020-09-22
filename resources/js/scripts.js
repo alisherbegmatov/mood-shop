@@ -68,7 +68,16 @@ const cart = []
      let itemStr = '';
     for (let i = 0; i < cart.length; i++) {
         const {name, price, qty} = cart[i];
-         itemStr += `<li>${name} $${price} x ${qty} = $${qty * price}</li>`;
+        itemStr += `
+        <li data-name="${name}">
+            <p>${name} $${price} x ${qty} = $${(qty * price).toFixed(2)}</p>
+            <div id="modify">
+                <button class="remove">Remove</button>
+                <button class="add-one"> + </button>
+                <button class="remove-one"> - </button>
+                <input class="update" type="number" min="0">
+            </div>
+        </li>`;
     }
     itemList.innerHTML = itemStr;
     const total = getTotal();
