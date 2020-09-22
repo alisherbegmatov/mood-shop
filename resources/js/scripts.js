@@ -97,3 +97,11 @@ function getTotal() {
  addItem('Frisbee', 9.92)
 
  showItems()
+
+ const allItemsButton = Array.from(document.querySelectorAll('button'))
+
+ allItemsButton.forEach(elt => elt.addEventListener('click', () => {
+     addItem(elt.getAttribute('id'), elt.getAttribute('data-price'))
+     showItems()
+ }))
+ 
